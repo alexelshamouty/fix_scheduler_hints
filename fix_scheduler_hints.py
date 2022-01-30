@@ -38,7 +38,7 @@ def fix_instance(instance):
     with conn.cursor() as cur:
       cur.execute("select instance_uuid,spec from request_specs where instance_uuid= %s",instance)
       print(cur._last_executed)
-      for row in itertools.islice(cur.fetchall(),1):
+      for row in cur.fetchall():
         if empty_scheduler_hints(row):
           print(f"Instance {row[0]} will be fixed")
           #fix(conn,row)
