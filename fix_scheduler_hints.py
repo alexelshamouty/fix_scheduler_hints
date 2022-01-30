@@ -63,5 +63,9 @@ def fix_instance(instance):
 
 
 if __name__ == "__main__":
+    if len(sys.argv) < 3:
+        print(f"Usage {sys.argv[0]} mysql_host instance_uuiid")
+        exit(-1)
+
     MYSQL_HOST = sys.argv[1]
     fix_instance(sys.argv[2])
